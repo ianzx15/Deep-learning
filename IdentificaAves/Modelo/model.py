@@ -44,22 +44,23 @@ data_augmentation = keras.Sequential(
 model = Sequential([
  data_augmentation,
   keras.layers.Rescaling(1./255, input_shape=(224, 224, 3)),
-  keras.layers.Conv2D(16, 3, padding='same', activation='relu'),
+  #aumentar as camadas de conv2d não ajudou
+  keras.layers.Conv2D(24, 3, padding='same', activation='relu'),
   keras.layers.MaxPooling2D(),
-  keras.layers.Conv2D(32, 3, padding='same', activation='relu'),
+  keras.layers.Conv2D(48, 3, padding='same', activation='relu'),
   keras.layers.MaxPooling2D(),
-  keras.layers.Conv2D(64, 3, padding='same', activation='relu'),
+  keras.layers.Conv2D(96, 3, padding='same', activation='relu'),
   keras.layers.MaxPooling2D(),
   keras.layers.Dropout(0.2),
   keras.layers.Flatten(),
-  keras.layers.Dense(128, activation='relu'),
-  keras.layers.Dense(450)
+  keras.layers.Dense(192, activation='relu'),
+  keras.layers.Dense(15)
 ])
 model.compile(optimizer='adam',
               loss=keras.losses.SparseCategoricalCrossentropy(from_logits=True),
               metrics=['accuracy'])
 
-epochs=25
+epochs=20
 history = model.fit(
   train_ds,
   validation_data=valid_ds,
