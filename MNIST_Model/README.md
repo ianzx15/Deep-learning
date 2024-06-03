@@ -1,0 +1,1 @@
+Code to generate a trained model using MNIST data for identification of handwritten digits.
