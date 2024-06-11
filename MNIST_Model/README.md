@@ -1,1 +1,1 @@
-Code to generate a trained model using MNIST data for identification of handwritten digits.
+Code to generate a trained model using MNIST(Modified National Institute of Standards and Technology) data for identification of handwritten digits.
